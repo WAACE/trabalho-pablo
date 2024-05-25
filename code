@@ -1,0 +1,87 @@
+package main
+import "fmt"
+
+type cliente struct{
+	nome_cpl string 
+	idade int
+	telefone string
+	endereco string
+	email string
+	time_fut string
+}
+
+func main(){	
+	
+  var entrada int
+  var cadastro_clientes []cliente
+
+  for{
+
+	fmt.Println("====================================================")
+	fmt.Println("====================== MENU ========================")
+	fmt.Println("====================================================")
+	fmt.Println("[1] - Cadastrar Cliente")
+    fmt.Println("[2] - Pesquisar Cliente")
+    fmt.Println("[3] - Listar Todos os Clientes")
+	fmt.Println("[4] - Resetar a Base de Dados")
+	fmt.Println("[5] - Sair do Programa")	
+	fmt.Println("====================================================")
+    fmt.Scanln(&entrada)		
+
+    if entrada == 1 {
+
+		cadastro_cliente := cliente{}
+		fmt.Println("====================================================")
+		fmt.Println("        Digite as informações do Cliente")
+		fmt.Println("====================================================")
+		fmt.Println("Nome Completo*:  ")
+		fmt.Scanln(&cadastro_cliente.nome_cpl)
+		fmt.Println("Idade*:  ")
+		fmt.Scanln(&cadastro_cliente.idade)
+		fmt.Println("Telefone:  ")
+		fmt.Scanln(&cadastro_cliente.telefone)
+		fmt.Println("Endereço*:  ")
+		fmt.Scanln(&cadastro_cliente.endereco)		
+		fmt.Println("E-Mail:  ")
+		fmt.Scanln(&cadastro_cliente.email)
+		fmt.Println("Time de Futebol:  ")
+		fmt.Scanln(&cadastro_cliente.time_fut)
+		fmt.Println("Cliente cadastrado com  sucesso!")
+
+		cadastro_clientes = append(cadastro_clientes, cadastro_cliente)
+
+    } else if entrada == 2 {
+
+		fmt.Println("====================================================")
+		fmt.Println("     Digite o nome do cliente a ser pesquisado")
+		fmt.Println("====================================================")
+
+	} else if entrada == 3{
+
+		fmt.Println("====================================================")
+		fmt.Println("      Lista de todos os clientes cadastrados")
+		fmt.Println("====================================================")
+
+		for _, cadastro_cliente := range cadastro_clientes{
+			fmt.Println("Nome Completo:  ", cadastro_cliente.nome_cpl)
+			fmt.Println("Idade*:  ", cadastro_cliente.idade)	
+			fmt.Println("Telefone:  ", cadastro_cliente.telefone)
+			fmt.Println("Endereço*:  ", cadastro_cliente.endereco)
+			fmt.Println("E-Mail:  ", cadastro_cliente.email)
+			fmt.Println("Time de Futebol:  ", cadastro_cliente.time_fut)
+			fmt.Println("====================================================")
+		}
+
+		fmt.Println("Lista carregada com sucesso!")	
+
+	} else if entrada == 4{
+
+		fmt.Println("~~~> Todos os dados foram resetados com sucesso <~~~")
+
+	} else {
+		fmt.Println("Programa fechado com sucesso!")
+		break
+    }
+  }
+}
+
